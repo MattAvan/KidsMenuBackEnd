@@ -1,0 +1,12 @@
+python manage.py shell
+
+from kidsbackendapp.models import DateMenu
+import datetime
+
+#change the start date here
+start_date = datetime.date(2021,5,24)
+
+for d in range(0,365):
+	DateMenu.objects.create(date=start_date+datetime.timedelta(days=d), mealTime="Lunch")
+	DateMenu.objects.create(date=start_date+datetime.timedelta(days=d), mealTime="Dinner")
+

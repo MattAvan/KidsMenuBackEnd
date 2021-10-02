@@ -1,0 +1,1 @@
+web: gunicorn kidsbackend.wsgi --log-file -

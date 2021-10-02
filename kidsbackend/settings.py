@@ -86,19 +86,21 @@ WSGI_APPLICATION = 'kidsbackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': os.environ['DJANGO_DB_NAME'],
-       'USER': os.environ['DJANGO_DB_USER'],
-       'PASSWORD': os.environ['DJANGO_DB_PASSWORD'],
-       'HOST': os.environ['DJANGO_DB_HOST'],
-       'PORT': os.environ['DJANGO_DB_PORT']
-   }
-}
+
 if not DEBUG:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['DJANGO_DB_NAME'],
+            'USER': os.environ['DJANGO_DB_USER'],
+            'PASSWORD': os.environ['DJANGO_DB_PASSWORD'],
+            'HOST': os.environ['DJANGO_DB_HOST'],
+            'PORT': os.environ['DJANGO_DB_PORT']
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

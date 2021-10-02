@@ -120,5 +120,5 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 
-#Django settings
-kidsbackend/settings.py
+
+

@@ -1,0 +1,3 @@
+Setting prod database in dev env:
+$Env:DATABASE_URL = heroku config:get DATABASE_URL -a kidsmenubackend
+$Env:LOCAL_DB_DEBUG = 'False'

@@ -41,7 +41,7 @@ class FoodSerializer(serializers.ModelSerializer):
                   'isMainCourse',
                   'lastEaten',
                   'scores',
-                  'foodImage',
+                  'foodImageURL',
                   'dates']
 
     def create(self, validated_data):
@@ -53,14 +53,15 @@ class FoodSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         scores = list((instance.scores).all())
-
+        scores_data = validated_data.pop('scores')
         instance.foodName = validated_data.get('foodName', instance.foodName)
         instance.containsProteins = validated_data.get('containsProteins', instance.containsProteins)
         instance.containsFish = validated_data.get('containsFish', instance.containsFish)
         instance.containsVegetables = validated_data.get('containsVegetables', instance.containsVegetables)
         instance.isMainCourse = validated_data.get('isMainCourse', instance.isMainCourse)
         instance.lastEaten = validated_data.get('lastEaten', instance.lastEaten)
-        instance.foodImage = validated_data.get('foodImage', instance.foodImage)
+        #instance.foodImage = validated_data.get('foodImage', instance.foodImage)
+        instance.foodImageURL = validated_data.get('foodImageURL', instance.foodImageURL)
         instance.save()
 
         for score_data in scores_data:

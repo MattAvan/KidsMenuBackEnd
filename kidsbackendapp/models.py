@@ -8,7 +8,8 @@ class Food(models.Model):
     containsVegetables = models.BooleanField(default=False)
     isMainCourse = models.BooleanField(default = True)
     lastEaten = models.DateTimeField(blank=True, null=True)
-    foodImage = models.ImageField(upload_to='recipes',null=True, blank=True, default=None)
+    #foodImage = models.ImageField(upload_to='recipes',null=True, blank=True, default=None)
+    foodImageURL = models.URLField(max_length=200, null=True, blank=True)
     def __str__(self):
         return self.foodName
 

@@ -29,7 +29,7 @@ class DateMenuSerializer(serializers.ModelSerializer):
 
 class FoodSerializer(serializers.ModelSerializer):
     scores = ScoreSerializer(many=True)
-    foodImage = Base64ImageField(required=False)
+    #foodImage = Base64ImageField(required=False)
     dates = serializers.SlugRelatedField(many=True, read_only=True, slug_field='date')
     class Meta:
         model = Food

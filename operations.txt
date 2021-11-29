@@ -1,3 +1,15 @@
-Setting prod database in dev env:
+Setting prod database in dev env (windows)
 $Env:DATABASE_URL = heroku config:get DATABASE_URL -a kidsmenubackend
 $Env:LOCAL_DB_DEBUG = 'False'
+
+In Mac:
+export DATABASE_URL="$(heroku config:get DATABASE_URL -a kidsmenubackend)"
+export LOCAL_DB_DEBUG="False"
+(to see a variable: echo $LOCAL_DB_DEBUG)
+(Careful: spaces mess up the commands. No bloody space after or before the =)
+
+Dump database:
+python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 > prod.json
+
+Load database:
+python manage.py loaddata prod.json

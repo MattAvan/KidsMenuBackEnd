@@ -1,3 +1,6 @@
+# Database dumps #
+prod.json
+
 # Django #
 *.log
 *.pot
@@ -26,7 +29,8 @@ media
 .idea/**/dynamic.xml 
 .idea/**/uiDesigner.xml 
 .idea/**/gradle.xml 
-.idea/**/libraries 
+.idea/**/libraries
+.idea/*
 *.iws /out/ 
 
 # Python # 

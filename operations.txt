@@ -9,7 +9,9 @@ export LOCAL_DB_DEBUG="False"
 (Careful: spaces mess up the commands. No bloody space after or before the =)
 
 Dump database:
-python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 > prod.json
+python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 --output prod.json
+
+(-e: exclude a particular app)
 
 Load database:
 python manage.py loaddata prod.json

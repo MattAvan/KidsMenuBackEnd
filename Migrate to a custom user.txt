@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/42794212/migrating-from-django-user-model-to-a-custom-user-model
+
+So far: https://krakensystems.co/blog/2020/custom-users-using-django-rest-framework
+Problem: should have created the custom user from the start. Now have to save data, delete DB and migrations, and start over.
+Then reimport everything. First test in dev, then in prod.
